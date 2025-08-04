@@ -6,8 +6,8 @@ import StarterKit from "@tiptap/starter-kit";
 import { Link } from "@tiptap/extension-link";
 import { Underline } from "@tiptap/extension-underline";
 import { TextStyle } from "@tiptap/extension-text-style";
-import { Superscript } from "@tiptap/extension-superscript";
 import { Subscript } from "@tiptap/extension-subscript";
+import { Superscript } from "@tiptap/extension-superscript";
 import { BubbleMenu } from "@tiptap/react/menus";
 import {
   DropdownMenu,
@@ -18,9 +18,13 @@ import {
 import Image from "@tiptap/extension-image";
 
 import { Button } from "@/components/ui/button";
-import { LucideImage } from "lucide-react";
-import ImageUploadModal from "./EditorPlugins/ImageUploadmodel";
-// import ImageUploadModal from "./EditorPlugins/ImageUploadmodel";
+import {
+  List,
+  ListOrdered,
+  LucideImage,
+  SubscriptIcon,
+  SuperscriptIcon,
+} from "lucide-react";
 
 type CustomTextEditorProps = {
   onOpenImageModal: () => void;
@@ -212,7 +216,7 @@ export default function CustomTextEditor({
           }
           className="btn"
         >
-          • List
+          <List />
         </Button>
         <Button
           variant={"outline"}
@@ -224,7 +228,7 @@ export default function CustomTextEditor({
           }
           className="btn"
         >
-          1. List
+          <ListOrdered />
         </Button>
         <Button
           variant={"outline"}
@@ -234,7 +238,7 @@ export default function CustomTextEditor({
           }
           className="btn"
         >
-          x<sub>2</sub>
+          <SubscriptIcon />
         </Button>
         <Button
           variant={"outline"}
@@ -246,7 +250,7 @@ export default function CustomTextEditor({
           }
           className="btn"
         >
-          x<sup>2</sup>
+          <SuperscriptIcon className="w-4 h-4" />
         </Button>
         <HeadingDropdown />
         <Button
