@@ -4,6 +4,16 @@ import "./globals.css";
 import { ThemeProvider } from "@/context/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import QueryProvider from "@/context/query-provider";
+import { Poppins } from "next/font/google";
+import "./globals.css";
+
+// Konfigurasi font Poppins dari Google Fonts
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"], // Tentukan weight yang Anda butuhkan
+  variable: "--font-poppins", // Opsional: untuk menggunakan via CSS variable
+});
 
 const dm_sans = DM_Sans({ subsets: ["latin"] });
 
@@ -19,7 +29,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-background ${dm_sans.className} antialiased`}>
+      <head>
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=host-grotesk@400,500,700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body
+        className={`bg-background ${dm_sans.className} ${poppins.variable} antialiased`}
+      >
         <QueryProvider>
           <ThemeProvider
             attribute="class"

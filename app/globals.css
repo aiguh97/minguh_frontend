@@ -17,6 +17,66 @@ body {
   );
 }
 
+.editor-font-arial {
+  font-family: Arial, sans-serif;
+}
+
+.editor-content h1 {
+  @apply text-4xl font-bold;
+}
+
+.editor-content h2 {
+  @apply text-3xl font-bold;
+}
+
+.editor-content h3 {
+  @apply text-2xl font-semibold;
+}
+
+.editor-content h4 {
+  @apply text-xl font-medium;
+}
+
+.editor-content h5 {
+  @apply text-lg font-medium;
+}
+
+/* Kemungkinan di globals.css atau file CSS lain yang relevan */
+/* Di file CSS Anda, misal globals.css atau modul CSS yang relevan */
+.editor-paragraph {
+  margin: 0; /* Hapus margin default */
+  padding: 0; /* Hapus padding default */
+  line-height: 1.5; /* Sesuaikan sesuai kebutuhan, 1.5 atau 1.6 biasanya baik */
+}
+
+/* Jika Anda tidak menggunakan kelas kustom dan Lexical hanya merender <p> */
+/* Pastikan CSS ini dimuat setelah reset CSS atau gaya framework */
+.editor-content p {
+  margin: 0 !important; /* !important dapat membantu jika ada gaya lain yang menimpa */
+  padding: 0 !important;
+  line-height: 1.5 !important; /* Sesuaikan sesuai preferensi Anda */
+}
+
+/* Mungkin juga berlaku untuk elemen heading jika jarak antar heading juga jauh */
+.editor-content h1,
+.editor-content h2,
+.editor-content h3,
+.editor-content h4,
+.editor-content h5,
+.editor-content h6 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.2 !important; /* Sesuaikan untuk heading */
+}
+[style*="font-family"] {
+  font-family: inherit;
+}
+
+/* ...kelas font bawaan lainnya... */
+
+.editor-font-hostest-greek {
+  font-family: var(--font-host-grotesk), sans-serif;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -37,6 +97,7 @@ body {
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
+    --font-host-grotesk: var(--font-host-grotesk-font);
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;

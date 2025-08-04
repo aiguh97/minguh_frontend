@@ -13,7 +13,6 @@ import {
   Settings,
   SunIcon,
   User,
-  
 } from "lucide-react";
 import Link from "next/link";
 import {
@@ -42,6 +41,7 @@ import Logo from "@/components/logo";
 import { useAuthContext } from "@/context/auth-provider";
 import LogoutDialog from "./_common/LogoutDialog";
 import { useTheme } from "next-themes";
+import { menuSidebar } from "@/data/dummy";
 
 const Asidebar = () => {
   const { theme, setTheme } = useTheme();
@@ -50,36 +50,8 @@ const Asidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { open } = useSidebar();
-  const items = [
-    {
-      title: "Home",
-      url: "/home",
-      icon: Home,
-    },
-      {
-      title: "Push Notifications",
-       url: "/notificationPages",
-     
-      icon: BellRingIcon,
-      
-    },
-    {
-      title: "Sessions",
-     url: "/sessions",
-      icon: Lock,
-    },
-    {
-      title: "Account",
-      url: "#",
-      icon: User,
-    },
+  const items = menuSidebar;
 
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings,
-    },
-  ];
   return (
     <>
       <Sidebar collapsible="icon">
@@ -100,16 +72,22 @@ const Asidebar = () => {
           <SidebarGroup>
             <SidebarGroupContent>
               <SidebarMenu>
-                {items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild>
-                      <a href={item.url} className="!text-[15px]">
-                        <item.icon />
-                        <span>{item.title}</span>
-                      </a>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
+                {items.map((item) => {
+                  const Icon = item.icon; // Pastikan ini komponen React (fungsi)
+                  return (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton asChild>
+                        <a
+                          href={item.url}
+                          className="!text-[15px] flex items-center gap-2"
+                        >
+                          <Icon />
+                          <span>{item.title}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  );
+                })}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>

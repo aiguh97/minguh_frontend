@@ -9,6 +9,22 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		typography: {
+        DEFAULT: {
+          css: {
+            h1: { fontSize: '2.25rem', fontWeight: '700' },
+            h2: { fontSize: '1.875rem', fontWeight: '700' },
+            h3: { fontSize: '1.5rem', fontWeight: '600' },
+            h4: { fontSize: '1.25rem', fontWeight: '600' },
+            h5: { fontSize: '1.125rem', fontWeight: '500' },
+          },
+        },
+      },
+		fontFamily: {
+        // Tambahkan font poppins di sini
+        poppins: ['var(--font-poppins)', 'sans-serif'],
+		host: ['"Host Grotesk"', 'sans-serif'],
+      },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -68,6 +84,6 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),require('@tailwindcss/typography')],
 };
 export default config;
